@@ -1,20 +1,245 @@
-extends partial/layout
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title> python学习：最小二乘拟合 | Homeland faraway</title>
+  <meta name="author" content="Chordy">
+  
+  <meta name="description" content="要求要拟合的函数能够给出具体的表达式。1234567891011121314151617181920212223242526272829303132333435363738import numpy as npfrom scipy.optimize import leastsqimport pylab">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-block site_title
-    != page.title + " · " + config.title
+  <meta property="og:title" content=" python学习：最小二乘拟合"/>
+  <meta property="og:site_name" content="Homeland faraway"/>
 
-block description
-    - var desc = page.desc || page.title + ' - ' + config.author;
-    meta(name="description", content=desc)
+  
+    <meta property="og:image" content="undefined"/>
+  
 
-block container
-    include mixins/post
-    +post(page)
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
 
-block pagination
-    include mixins/paginator
-    +post()
-    include partial/comment
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/lumen.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
-block copyright
-    include partial/copyright
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Homeland faraway</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>目录
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse ">  python学习：最小二乘拟合</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <p>要求要拟合的函数能够给出具体的表达式。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">from</span> scipy.optimize <span class="keyword">import</span> leastsq</div><div class="line"><span class="keyword">import</span> pylab <span class="keyword">as</span> pl</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(x, p)</span>:</span> <span class="comment"># x是自变量，p是要拟合得到的参数</span></div><div class="line">    </div><div class="line">    <span class="comment">#函数形式： A*sin(2*pi*k*x + theta)</span></div><div class="line">    </div><div class="line">    A, k, theta = p <span class="comment">#注意左边的格式</span></div><div class="line">    <span class="keyword">return</span> A*np.sin(<span class="number">2</span>*np.pi*k*x+theta)   </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">residuals</span><span class="params">(p, y, x)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line">    实验数据x, y和拟合函数之间的差，p为拟合需要找到的系数</div><div class="line">    """</div><div class="line">    <span class="keyword">return</span> y - func(x, p)</div><div class="line"></div><div class="line">x = np.linspace(<span class="number">0</span>, <span class="number">-2</span>*np.pi, <span class="number">100</span>)</div><div class="line">A, k, theta = <span class="number">10</span>, <span class="number">0.34</span>, np.pi/<span class="number">6</span> <span class="comment"># 真实数据的函数参数</span></div><div class="line">y0 = func(x, [A, k, theta]) <span class="comment"># 真实数据</span></div><div class="line">y1 = y0 + <span class="number">2</span> * np.random.randn(len(x)) <span class="comment"># 加入噪声之后的实验数据    </span></div><div class="line"></div><div class="line">p0 = [<span class="number">7</span>, <span class="number">0.2</span>, <span class="number">0</span>] <span class="comment"># 第一次猜测的函数拟合参数</span></div><div class="line"></div><div class="line"><span class="comment"># 调用leastsq进行数据拟合</span></div><div class="line"><span class="comment"># residuals为计算误差的函数</span></div><div class="line"><span class="comment"># p0为拟合参数的初始值</span></div><div class="line"><span class="comment"># args为需要拟合的实验数据</span></div><div class="line">plsq = leastsq(residuals, p0, args=(y1, x))</div><div class="line"></div><div class="line"><span class="keyword">print</span> (<span class="string">u"ieal parameters:"</span>, [A, k, theta] )</div><div class="line"><span class="keyword">print</span> (<span class="string">u"parameters"</span>, plsq[<span class="number">0</span>]) <span class="comment"># 实验数据拟合后的参数</span></div><div class="line"></div><div class="line">pl.plot(x, y0, label=<span class="string">u"ideal"</span>)</div><div class="line">pl.plot(x, y1, label=<span class="string">u"add noise"</span>)</div><div class="line">pl.plot(x, func(x, plsq[<span class="number">0</span>]), label=<span class="string">u"fitted"</span>)</div><div class="line">pl.legend()</div><div class="line">pl.show()</div></pre></td></tr></table></figure></p>
+<p>如果没有具体的表达式，比如有两个元素的光谱图，需要使用最小二乘法来拟合的到两个元素的比例<br>可以通过构建矛盾方程的方法来解决<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> scipy <span class="keyword">as</span> sp</div><div class="line"><span class="keyword">import</span> pylab <span class="keyword">as</span> pl</div><div class="line"></div><div class="line">f1=open(<span class="string">'Cy3-1-510.txt'</span>,<span class="string">'r'</span>)</div><div class="line">data1=[]</div><div class="line">lam=[]</div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> f1:</div><div class="line">    da=float(line.split()[<span class="number">1</span>])</div><div class="line">    la=float(line.split()[<span class="number">0</span>])</div><div class="line">    data1.append(da)</div><div class="line">    lam.append(la)</div><div class="line">f1.close()</div><div class="line">f1=open(<span class="string">'QDs-control-370.txt'</span>,<span class="string">'r'</span>)</div><div class="line">data2=[]</div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> f1:</div><div class="line">    da=float(line.split(<span class="string">','</span>)[<span class="number">1</span>])</div><div class="line">    data2.append(da)</div><div class="line">    <span class="comment">#print(da)</span></div><div class="line">f1.close()</div><div class="line">f1=open(<span class="string">'QD+CY3.txt'</span>,<span class="string">'r'</span>)</div><div class="line">data3=[]</div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> f1:</div><div class="line">    da=float(line.split()[<span class="number">1</span>])</div><div class="line">    data3.append(da)</div><div class="line">f1.close()</div><div class="line">da1=np.array([data1,data2]).T</div><div class="line">da3=np.array(data3)</div><div class="line">da3.shape=(<span class="number">181</span>,<span class="number">1</span>)</div><div class="line">tda1=da1.T</div><div class="line"><span class="comment">##print(tda1.shape)</span></div><div class="line">x=np.dot(tda1,da1)</div><div class="line">yy=np.dot(tda1,da3)</div><div class="line">a=np.dot(np.linalg.inv(x),yy)<span class="comment">#对应的系数，a1,a2</span></div><div class="line">fitted=a[<span class="number">0</span>]*da1[:,<span class="number">0</span>]+a[<span class="number">1</span>]*da1[:,<span class="number">1</span>]</div><div class="line">lamb=np.array(lam)</div><div class="line">lamb.shape=(<span class="number">1</span>,<span class="number">181</span>)</div><div class="line">pl.plot(lam,da1[:,<span class="number">0</span>],label=<span class="string">u"sample line 1"</span>)</div><div class="line">pl.plot(lam,da1[:,<span class="number">1</span>],label=<span class="string">u"sample line 2"</span>)</div><div class="line">pl.plot(lam, da3, label=<span class="string">u"mixed"</span>)</div><div class="line">pl.plot(lam, fitted, label=<span class="string">u"fitted"</span>)</div><div class="line">pl.legend()</div><div class="line">pl.show()</div></pre></td></tr></table></figure></p>
+<p>显示如下：<br><img src="http://bdbea3.duapp.com/pcs_download.php?id=2161&amp;link=%2Fapps%2Fhgf_blog%2Ffigure_1.png" alt=""></p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2017/04/08/python打开sql文件/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Anterior</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2017/04/08/vim_注释多行_python/" class="alignright next">Próximo<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comentários</h2>
+
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2017-04-08 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/python/">python<span>5</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/python/">python<span>5</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Chordy
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>

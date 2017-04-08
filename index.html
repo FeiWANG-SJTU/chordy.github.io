@@ -1,12 +1,517 @@
-extends partial/layout
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Homeland faraway</title>
+  <meta name="author" content="Chordy">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-block container
-    include mixins/post
-    +posts()
+  
+  <meta property="og:site_name" content="Homeland faraway"/>
 
-block pagination
-    include mixins/paginator
-    +home()
+  
+    <meta property="og:image" content="undefined"/>
+  
 
-block copyright
-    include partial/copyright
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/lumen.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Homeland faraway</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>目录
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 <div class="page-header page-header-inverse ">
+  <h1 class="title title-inverse ">slowly walking</h1>
+</div>
+
+<div class="row page">
+
+	
+	<div class="col-md-9">
+	
+
+		<div class="slogan">
+      <i class="fa fa-heart"></i>
+      Yet another bootstrap theme.
+</div>    
+		<div id="top_search"></div>
+		<div class="mypage">
+		
+		<!-- title and entry -->
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2017-04-08 </div>
+			<div class="article-title"><a href="/2017/04/08/使用Jython写ImageJ插件/" >使用Jython写ImageJ插件</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		
+	
+	</div>
+  <a type="button" href="/2017/04/08/使用Jython写ImageJ插件/#more" class="btn btn-default more">Leia Mais</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2017-04-08 </div>
+			<div class="article-title"><a href="/2017/04/08/vim_注释多行_python/" >vim 中对python进行多行注释</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>^v 进入block模式<br>h,j移动光标选中每行首字母<br>大写i<br>然后#<br>esc</p>
+<h1 id="取消注释"><a href="#取消注释" class="headerlink" title="取消注释"></a>取消注释</h1><p>选中后按d即可取消</p>
+
+	
+	</div>
+  <a type="button" href="/2017/04/08/vim_注释多行_python/#more" class="btn btn-default more">Leia Mais</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2017-04-08 </div>
+			<div class="article-title"><a href="/2017/04/08/python学习之最小二乘拟合/" > python学习：最小二乘拟合</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>要求要拟合的函数能够给出具体的表达式。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">from</span> scipy.optimize <span class="keyword">import</span> leastsq</div><div class="line"><span class="keyword">import</span> pylab <span class="keyword">as</span> pl</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(x, p)</span>:</span> <span class="comment"># x是自变量，p是要拟合得到的参数</span></div><div class="line">    </div><div class="line">    <span class="comment">#函数形式： A*sin(2*pi*k*x + theta)</span></div><div class="line">    </div><div class="line">    A, k, theta = p <span class="comment">#注意左边的格式</span></div><div class="line">    <span class="keyword">return</span> A*np.sin(<span class="number">2</span>*np.pi*k*x+theta)   </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">residuals</span><span class="params">(p, y, x)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line">    实验数据x, y和拟合函数之间的差，p为拟合需要找到的系数</div><div class="line">    """</div><div class="line">    <span class="keyword">return</span> y - func(x, p)</div><div class="line"></div><div class="line">x = np.linspace(<span class="number">0</span>, <span class="number">-2</span>*np.pi, <span class="number">100</span>)</div><div class="line">A, k, theta = <span class="number">10</span>, <span class="number">0.34</span>, np.pi/<span class="number">6</span> <span class="comment"># 真实数据的函数参数</span></div><div class="line">y0 = func(x, [A, k, theta]) <span class="comment"># 真实数据</span></div><div class="line">y1 = y0 + <span class="number">2</span> * np.random.randn(len(x)) <span class="comment"># 加入噪声之后的实验数据    </span></div><div class="line"></div><div class="line">p0 = [<span class="number">7</span>, <span class="number">0.2</span>, <span class="number">0</span>] <span class="comment"># 第一次猜测的函数拟合参数</span></div><div class="line"></div><div class="line"><span class="comment"># 调用leastsq进行数据拟合</span></div><div class="line"><span class="comment"># residuals为计算误差的函数</span></div><div class="line"><span class="comment"># p0为拟合参数的初始值</span></div><div class="line"><span class="comment"># args为需要拟合的实验数据</span></div><div class="line">plsq = leastsq(residuals, p0, args=(y1, x))</div><div class="line"></div><div class="line"><span class="keyword">print</span> (<span class="string">u"ieal parameters:"</span>, [A, k, theta] )</div><div class="line"><span class="keyword">print</span> (<span class="string">u"parameters"</span>, plsq[<span class="number">0</span>]) <span class="comment"># 实验数据拟合后的参数</span></div><div class="line"></div><div class="line">pl.plot(x, y0, label=<span class="string">u"ideal"</span>)</div><div class="line">pl.plot(x, y1, label=<span class="string">u"add noise"</span>)</div><div class="line">pl.plot(x, func(x, plsq[<span class="number">0</span>]), label=<span class="string">u"fitted"</span>)</div><div class="line">pl.legend()</div><div class="line">pl.show()</div></pre></td></tr></table></figure></p>
+<p>如果没有具体的表达式，比如有两个元素的光谱图，需要使用最小二乘法来拟合的到两个元素的比例<br>可以通过构建矛盾方程的方法来解决<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> scipy <span class="keyword">as</span> sp</div><div class="line"><span class="keyword">import</span> pylab <span class="keyword">as</span> pl</div><div class="line"></div><div class="line">f1=open(<span class="string">'Cy3-1-510.txt'</span>,<span class="string">'r'</span>)</div><div class="line">data1=[]</div><div class="line">lam=[]</div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> f1:</div><div class="line">    da=float(line.split()[<span class="number">1</span>])</div><div class="line">    la=float(line.split()[<span class="number">0</span>])</div><div class="line">    data1.append(da)</div><div class="line">    lam.append(la)</div><div class="line">f1.close()</div><div class="line">f1=open(<span class="string">'QDs-control-370.txt'</span>,<span class="string">'r'</span>)</div><div class="line">data2=[]</div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> f1:</div><div class="line">    da=float(line.split(<span class="string">','</span>)[<span class="number">1</span>])</div><div class="line">    data2.append(da)</div><div class="line">    <span class="comment">#print(da)</span></div><div class="line">f1.close()</div><div class="line">f1=open(<span class="string">'QD+CY3.txt'</span>,<span class="string">'r'</span>)</div><div class="line">data3=[]</div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> f1:</div><div class="line">    da=float(line.split()[<span class="number">1</span>])</div><div class="line">    data3.append(da)</div><div class="line">f1.close()</div><div class="line">da1=np.array([data1,data2]).T</div><div class="line">da3=np.array(data3)</div><div class="line">da3.shape=(<span class="number">181</span>,<span class="number">1</span>)</div><div class="line">tda1=da1.T</div><div class="line"><span class="comment">##print(tda1.shape)</span></div><div class="line">x=np.dot(tda1,da1)</div><div class="line">yy=np.dot(tda1,da3)</div><div class="line">a=np.dot(np.linalg.inv(x),yy)<span class="comment">#对应的系数，a1,a2</span></div><div class="line">fitted=a[<span class="number">0</span>]*da1[:,<span class="number">0</span>]+a[<span class="number">1</span>]*da1[:,<span class="number">1</span>]</div><div class="line">lamb=np.array(lam)</div><div class="line">lamb.shape=(<span class="number">1</span>,<span class="number">181</span>)</div><div class="line">pl.plot(lam,da1[:,<span class="number">0</span>],label=<span class="string">u"sample line 1"</span>)</div><div class="line">pl.plot(lam,da1[:,<span class="number">1</span>],label=<span class="string">u"sample line 2"</span>)</div><div class="line">pl.plot(lam, da3, label=<span class="string">u"mixed"</span>)</div><div class="line">pl.plot(lam, fitted, label=<span class="string">u"fitted"</span>)</div><div class="line">pl.legend()</div><div class="line">pl.show()</div></pre></td></tr></table></figure></p>
+<p>显示如下：<br><img src="http://bdbea3.duapp.com/pcs_download.php?id=2161&amp;link=%2Fapps%2Fhgf_blog%2Ffigure_1.png" alt=""></p>
+
+	
+	</div>
+  <a type="button" href="/2017/04/08/python学习之最小二乘拟合/#more" class="btn btn-default more">Leia Mais</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2017-04-08 </div>
+			<div class="article-title"><a href="/2017/04/08/python打开sql文件/" >python 打开SQL文件</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sqlite3</div><div class="line">  <span class="number">7</span> conn=sqlite3.connect(<span class="string">'hardwaredb.sqlite'</span>)</div><div class="line">    <span class="number">6</span> cur= conn.cursor()</div><div class="line">      <span class="number">5</span> cur.execute(<span class="string">'SELECT * from LogicGates where num=8'</span>)</div><div class="line">        <span class="number">4</span> <span class="comment">#print  cur.fetchall()</span></div><div class="line">          <span class="number">3</span> <span class="comment">#conn.commit()</span></div><div class="line">            <span class="number">2</span> f=cur.fetchall()</div><div class="line">              <span class="number">1</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">12</span>):</div><div class="line">              <span class="number">9</span>       <span class="keyword">print</span> <span class="string">'8s%d: %s'</span> %(i+<span class="number">1</span>,f[<span class="number">0</span>][i+<span class="number">2</span>])</div><div class="line">                <span class="number">1</span> conn.close()</div></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2017/04/08/python打开sql文件/#more" class="btn btn-default more">Leia Mais</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2017-04-08 </div>
+			<div class="article-title"><a href="/2017/04/08/git操作/" >git 基本操作</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>#git 基本操作 </p>
+<blockquote>
+<p>git add –all  track 所有<br>git vim file 进入文本编辑<br>esc 退出编辑<br>:WQ！ 保存改动并退出<br>git status -s 查看状态<br>git add file 添加更改<br>git diff –cached 已缓存的改动<br>git diff 未缓存的改动<br>git diff HEAD 所有改动<br>git commit -m ‘my hola mudo changes’ 记录缓存内容的快照<br>-m 在命令行中提供提交注释 如果没有-m 默认打开vim 后面是<br>自己的改动内容<br>git log 查看提交过的更改记录<br>git pull 从远端服务器提取新数据<br>git push <a href="https://github.com/chordy/DNAcomp.git" target="_blank" rel="external">https://github.com/chordy/DNAcomp.git</a></p>
+</blockquote>
+
+	
+	</div>
+  <a type="button" href="/2017/04/08/git操作/#more" class="btn btn-default more">Leia Mais</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2017-04-08 </div>
+			<div class="article-title"><a href="/2017/04/08/hello-world/" >Hello World</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+	
+	</div>
+  <a type="button" href="/2017/04/08/hello-world/#more" class="btn btn-default more">Leia Mais</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-03-06 </div>
+			<div class="article-title"><a href="/2016/03/06/python-B-Splline-插值曲线/" >python B-Splline 插值曲线</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> pylab <span class="keyword">as</span> pl</div><div class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> interpolate</div><div class="line"><span class="comment">#读取实验数据</span></div><div class="line">f1=open(<span class="string">'Mydata.txt'</span>,<span class="string">'r'</span>)</div><div class="line">data=[]</div><div class="line">lam=[]</div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> f1:</div><div class="line">    da=float(line.split()[<span class="number">1</span>])</div><div class="line">    la=float(line.split()[<span class="number">0</span>])</div><div class="line">    data.append(da)</div><div class="line">    lam.append(la)</div><div class="line">f1.close()</div><div class="line">lam1=np.arange(lam[<span class="number">0</span>],lam[<span class="number">29</span>],(lam[<span class="number">1</span>]-lam[<span class="number">0</span>])/<span class="number">10.0</span>) <span class="comment">#新的横坐标，10倍</span></div><div class="line"><span class="comment">#插值曲线</span></div><div class="line">tck=interpolate.splrep(lam,data)</div><div class="line">da_bspline=interpolate.splev(lam1,tck)</div><div class="line"><span class="comment">#显示</span></div><div class="line">pl.plot(lam1,da_bspline,label=<span class="string">u'BSpline'</span>)</div><div class="line">pl.plot(lam,data,label=<span class="string">u'data'</span>)</div><div class="line">pl.legend()</div><div class="line">pl.show()</div></pre></td></tr></table></figure>
+<p><img src="http://bdbea3.duapp.com/pcs_download.php?id=2161&amp;link=%2Fapps%2Fhgf_blog%2Ffigure_1%281%29.png" alt=""></p>
+
+	
+	</div>
+  <a type="button" href="/2016/03/06/python-B-Splline-插值曲线/#more" class="btn btn-default more">Leia Mais</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-02-25 </div>
+			<div class="article-title"><a href="/2016/02/25/完全新手使用GitHub搭建博客/" >完全新手使用GitHub搭建博客</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>#完全新手使用GitHub搭建博客</p>
+<hr>
+<p>折腾了大半天终于搞定了，详细流程分享一下</p>
+<hr>
+<h2 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h2><p>看网上推荐在godaddy购买 <a href="https://www.godaddy.com/" target="_blank" rel="external">https://www.godaddy.com/</a></p>
+<ol>
+<li>查找你想要的域名</li>
+<li>选中后continue to cart</li>
+<li>注册一个账号，（邮箱一定要是可以正常登陆的）然后去支付</li>
+<li>支付方式选unionpay，就可以跳转到网银支付了。</li>
+<li>支付完成以后一定去邮箱激活</li>
+</ol>
+<h2 id="安装备用软件"><a href="#安装备用软件" class="headerlink" title="安装备用软件"></a>安装备用软件</h2><p>Node.js <a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a> </p>
+<p>Git  <a href="http://git-scm.com/" target="_blank" rel="external">http://git-scm.com/</a></p>
+<p>下载安装好后，在开始菜单打开 git bash </p>
+<p>##注册GitHub<br>访问：<a href="http://www.github.com/" target="_blank" rel="external">http://www.github.com/</a></p>
+<p>注册你的username和邮箱，邮箱十分重要，GitHub上很多通知都是通过邮箱的。</p>
+<p>注册过程比较简单，详细也可以看：</p>
+<p>一步步在GitHub上创建博客主页 全系列 by pchou（推荐）</p>
+<p>##配置和使用 Github</p>
+<p>###检查 SSH keys的设置<br>首先我们需要检查你电脑上现有的ssh key：</p>
+<blockquote>
+<p>$ cd ~/.ssh 检查本机的ssh密钥</p>
+</blockquote>
+<p>如果提示：No such file or directory 说明你是第一次使用git。</p>
+<p>生成新的SSH Key：</p>
+<blockquote>
+<p>$ ssh-keygen -t rsa -C “邮件地址@youremail.com”</p>
+</blockquote>
+<p>然后连按三次回车键<br>此处的邮箱地址，你可以输入自己的邮箱地址</p>
+<p>###添加 SSH Key 到 GitHub<br>1、打开本地C:\Documents and Settings\Administrator.ssh\id_rsa.pub文件。此文件里面内容为刚才生成人密钥。如果看不到这个文件，你需要设置显示隐藏文件。准确的复制这个文件的内容，才能保证设置的成功。</p>
+<p>2、登陆github系统。点击右上角的 Account Settings—&gt;SSH Public keys —&gt; add another public keys</p>
+<p>3、把你本地生成的密钥复制到里面（key文本框中）， 点击 add key 就ok了</p>
+<p>###测试</p>
+<p>从开始菜单打开 git bash</p>
+<blockquote>
+<p>$ ssh -T git@github.com</p>
+</blockquote>
+<p>输入yes</p>
+<p>看到：</p>
+<blockquote>
+<p>ou’ve successfully authenticated, but GitHub does not provide shell access.</p>
+</blockquote>
+<p>则配置成功</p>
+<p>###设置用户信息<br>现在你已经可以通过 SSH 链接到 GitHub 了，还有一些个人信息需要完善的。</p>
+<p>Git 会根据用户的名字和邮箱来记录提交。GitHub 也是用这些信息来做权限的处理，输入下面的代码进行个人信息的设置，把名称和邮箱替换成你自己的，名字必须是你的真名，而不是GitHub的昵称。</p>
+<blockquote>
+<p>$ git config –global user.name “cnfeat”//用户名<br>$ git config –global user.email  “cnfeat@gmail.com”//填写自己的邮箱</p>
+</blockquote>
+<p>SSH Key 配置成功<br>本机已成功连接到 github。</p>
+<p>##将独立域名与 GitHub Pages 的空间绑定<br>注册DNSpod<br>点域名解析-&gt; 把刚注册的域名输入进去<br>会跳转到记录管理界面<br>添加两条记录<br><img src="file://C://Users/chordy/Desktop/15.png" alt=""></p>
+<p>ip地址可以打开cmd<br>输入 ping user.github.io 获取</p>
+<p>##然后去 Godaddy 修改 DNS 地址<br>参考<a href="http://cnfeat.com/blog/2014/05/10/how-to-build-a-blog/" target="_blank" rel="external">http://cnfeat.com/blog/2014/05/10/how-to-build-a-blog/</a></p>
+<h2 id="使用-GitHub-Pages-建立博客"><a href="#使用-GitHub-Pages-建立博客" class="headerlink" title="使用 GitHub Pages 建立博客"></a>使用 GitHub Pages 建立博客</h2><p>新建一个repository，命名yourname.github.io</p>
+<p>##安装Hexo<br>打开git。</p>
+<p>$ npm install -g hexo</p>
+<p>###部署Hexo<br>在我的电脑中建立一个名字叫「Hexo」的文件夹，然后在此文件夹中右键打开Git Bash。</p>
+<p>$ hexo init<br>Hexo随后会自动在目标文件夹建立网站所需要的所有文件。</p>
+<p>现在我们已经搭建起本地的hexo博客了，执行以下命令(在H:\hexo)，然后到浏览器输入localhost:4000看看。</p>
+<p>$ hexo g<br>$ hexo s</p>
+<p>###将独立域名与GitHub Pages的空间绑定<br>GitHub Pages的设置<br>方法一：在Repository的根目录下面，新建一个名为CNAME的文本文件，里面写入你要绑定的域名，比如cnfeat.com。</p>
+<p>方法二：到我的github仓库，点击右下角的「Download ZIP」，下载源文件，解压，找到CNAME文件，用记事本打开，将cnfeat.com修改成你的域名，放进Hexo\source目录下，用hexo命令提交上去。</p>
+<p>$ hexo d -g</p>
+<p>##配置和使用hexo<br>参考<a href="http://zipperary.com/2013/05/28/hexo-guide-2/" target="_blank" rel="external">http://zipperary.com/2013/05/28/hexo-guide-2/</a></p>
+<p>注意： 遇到deployer not found: github<br>要 _config.yml 中设置 deploy中的type一项为git（而且还要注意空一格），然后</p>
+<blockquote>
+<p>npm install hexo-deployer-git –save</p>
+</blockquote>
+<p>然后 hexo g<br>hexo d </p>
+
+	
+	</div>
+  <a type="button" href="/2016/02/25/完全新手使用GitHub搭建博客/#more" class="btn btn-default more">Leia Mais</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2016-02-25 </div>
+			<div class="article-title"><a href="/2016/02/25/aa/" > new post</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>#���Ǳ���</p>
+<p>##���Ƕ�������</p>
+<p>###��������</p>
+<ol>
+<li>��һ��<br>\’���ǵ��д���\’<br>//<br>int i;<h3 id="3-����һ�δ���-code"><a href="#3-����һ�δ���-code" class="headerlink" title="3. ����һ�δ���[^code]"></a>3. ����һ�δ���[^code]</h3></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@requires_authorization</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></div><div class="line">    <span class="keyword">pass</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="comment"># A comment</span></div><div class="line">    <span class="keyword">print</span> <span class="string">'hello world'</span></div></pre></td></tr></table></figure>
+	
+	</div>
+  <a type="button" href="/2016/02/25/aa/#more" class="btn btn-default more">Leia Mais</a>
+</div>
+
+		
+
+		</div>
+
+		<!-- pagination -->
+		<div>
+  		<center>
+		<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+  		</center>
+		</div>
+
+		
+		
+	</div> <!-- col-md-9 -->
+
+	
+		<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="Busca" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+	<div class="widget">
+		<h4>Categorias</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/python/">python<span>5</span></a></li>
+		
+		</ul>
+	</div>
+
+		
+			
+	<div class="widget">
+		<h4>Tag Cloud</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/python/">python<span>5</span></a></li>
+		
+			<li><a href="/tags/imageJ/">imageJ<span>1</span></a></li>
+		
+			<li><a href="/tags/vim/">vim<span>1</span></a></li>
+		
+		 
+		</ul>
+	</div>
+
+
+		
+			
+<div class="widget">
+  <h4>Posts recentes</h4>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2017/04/08/使用Jython写ImageJ插件/" ><i class="fa fa-file-o"></i>使用Jython写ImageJ插件</a>
+      </li>
+    
+      <li>
+        <a href="/2017/04/08/vim_注释多行_python/" ><i class="fa fa-file-o"></i>vim 中对python进行多行注释</a>
+      </li>
+    
+      <li>
+        <a href="/2017/04/08/python学习之最小二乘拟合/" ><i class="fa fa-file-o"></i> python学习：最小二乘拟合</a>
+      </li>
+    
+      <li>
+        <a href="/2017/04/08/python打开sql文件/" ><i class="fa fa-file-o"></i>python 打开SQL文件</a>
+      </li>
+    
+      <li>
+        <a href="/2017/04/08/git操作/" ><i class="fa fa-file-o"></i>git 基本操作</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+			
+<div class="widget">
+	<h4>Links</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="http://www.github.com/chordy" title="My Github account." target="_blank"]);">My Github</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+	
+	
+</div> <!-- row-fluid -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Chordy
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>

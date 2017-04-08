@@ -1,20 +1,301 @@
-extends partial/layout
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>完全新手使用GitHub搭建博客 | Homeland faraway</title>
+  <meta name="author" content="Chordy">
+  
+  <meta name="description" content="#完全新手使用GitHub搭建博客
 
-block site_title
-    != page.title + " · " + config.title
+折腾了大半天终于搞定了，详细流程分享一下
 
-block description
-    - var desc = page.desc || page.title + ' - ' + config.author;
-    meta(name="description", content=desc)
+购买域名看网上推荐在godaddy购买 https://www.godaddy.com/
 
-block container
-    include mixins/post
-    +post(page)
+查找你想要的域名
+选中后continue to cart
+注册一个账号，（邮箱一定要是可以正常登陆的）然后去支付
+支付方式选u">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-block pagination
-    include mixins/paginator
-    +post()
-    include partial/comment
+  <meta property="og:title" content="完全新手使用GitHub搭建博客"/>
+  <meta property="og:site_name" content="Homeland faraway"/>
 
-block copyright
-    include partial/copyright
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/lumen.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Homeland faraway</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>目录
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 完全新手使用GitHub搭建博客</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <p>#完全新手使用GitHub搭建博客</p>
+<hr>
+<p>折腾了大半天终于搞定了，详细流程分享一下</p>
+<hr>
+<h2 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h2><p>看网上推荐在godaddy购买 <a href="https://www.godaddy.com/" target="_blank" rel="external">https://www.godaddy.com/</a></p>
+<ol>
+<li>查找你想要的域名</li>
+<li>选中后continue to cart</li>
+<li>注册一个账号，（邮箱一定要是可以正常登陆的）然后去支付</li>
+<li>支付方式选unionpay，就可以跳转到网银支付了。</li>
+<li>支付完成以后一定去邮箱激活</li>
+</ol>
+<h2 id="安装备用软件"><a href="#安装备用软件" class="headerlink" title="安装备用软件"></a>安装备用软件</h2><p>Node.js <a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a> </p>
+<p>Git  <a href="http://git-scm.com/" target="_blank" rel="external">http://git-scm.com/</a></p>
+<p>下载安装好后，在开始菜单打开 git bash </p>
+<p>##注册GitHub<br>访问：<a href="http://www.github.com/" target="_blank" rel="external">http://www.github.com/</a></p>
+<p>注册你的username和邮箱，邮箱十分重要，GitHub上很多通知都是通过邮箱的。</p>
+<p>注册过程比较简单，详细也可以看：</p>
+<p>一步步在GitHub上创建博客主页 全系列 by pchou（推荐）</p>
+<p>##配置和使用 Github</p>
+<p>###检查 SSH keys的设置<br>首先我们需要检查你电脑上现有的ssh key：</p>
+<blockquote>
+<p>$ cd ~/.ssh 检查本机的ssh密钥</p>
+</blockquote>
+<p>如果提示：No such file or directory 说明你是第一次使用git。</p>
+<p>生成新的SSH Key：</p>
+<blockquote>
+<p>$ ssh-keygen -t rsa -C “邮件地址@youremail.com”</p>
+</blockquote>
+<p>然后连按三次回车键<br>此处的邮箱地址，你可以输入自己的邮箱地址</p>
+<p>###添加 SSH Key 到 GitHub<br>1、打开本地C:\Documents and Settings\Administrator.ssh\id_rsa.pub文件。此文件里面内容为刚才生成人密钥。如果看不到这个文件，你需要设置显示隐藏文件。准确的复制这个文件的内容，才能保证设置的成功。</p>
+<p>2、登陆github系统。点击右上角的 Account Settings—&gt;SSH Public keys —&gt; add another public keys</p>
+<p>3、把你本地生成的密钥复制到里面（key文本框中）， 点击 add key 就ok了</p>
+<p>###测试</p>
+<p>从开始菜单打开 git bash</p>
+<blockquote>
+<p>$ ssh -T git@github.com</p>
+</blockquote>
+<p>输入yes</p>
+<p>看到：</p>
+<blockquote>
+<p>ou’ve successfully authenticated, but GitHub does not provide shell access.</p>
+</blockquote>
+<p>则配置成功</p>
+<p>###设置用户信息<br>现在你已经可以通过 SSH 链接到 GitHub 了，还有一些个人信息需要完善的。</p>
+<p>Git 会根据用户的名字和邮箱来记录提交。GitHub 也是用这些信息来做权限的处理，输入下面的代码进行个人信息的设置，把名称和邮箱替换成你自己的，名字必须是你的真名，而不是GitHub的昵称。</p>
+<blockquote>
+<p>$ git config –global user.name “cnfeat”//用户名<br>$ git config –global user.email  “cnfeat@gmail.com”//填写自己的邮箱</p>
+</blockquote>
+<p>SSH Key 配置成功<br>本机已成功连接到 github。</p>
+<p>##将独立域名与 GitHub Pages 的空间绑定<br>注册DNSpod<br>点域名解析-&gt; 把刚注册的域名输入进去<br>会跳转到记录管理界面<br>添加两条记录<br><img src="file://C://Users/chordy/Desktop/15.png" alt=""></p>
+<p>ip地址可以打开cmd<br>输入 ping user.github.io 获取</p>
+<p>##然后去 Godaddy 修改 DNS 地址<br>参考<a href="http://cnfeat.com/blog/2014/05/10/how-to-build-a-blog/" target="_blank" rel="external">http://cnfeat.com/blog/2014/05/10/how-to-build-a-blog/</a></p>
+<h2 id="使用-GitHub-Pages-建立博客"><a href="#使用-GitHub-Pages-建立博客" class="headerlink" title="使用 GitHub Pages 建立博客"></a>使用 GitHub Pages 建立博客</h2><p>新建一个repository，命名yourname.github.io</p>
+<p>##安装Hexo<br>打开git。</p>
+<p>$ npm install -g hexo</p>
+<p>###部署Hexo<br>在我的电脑中建立一个名字叫「Hexo」的文件夹，然后在此文件夹中右键打开Git Bash。</p>
+<p>$ hexo init<br>Hexo随后会自动在目标文件夹建立网站所需要的所有文件。</p>
+<p>现在我们已经搭建起本地的hexo博客了，执行以下命令(在H:\hexo)，然后到浏览器输入localhost:4000看看。</p>
+<p>$ hexo g<br>$ hexo s</p>
+<p>###将独立域名与GitHub Pages的空间绑定<br>GitHub Pages的设置<br>方法一：在Repository的根目录下面，新建一个名为CNAME的文本文件，里面写入你要绑定的域名，比如cnfeat.com。</p>
+<p>方法二：到我的github仓库，点击右下角的「Download ZIP」，下载源文件，解压，找到CNAME文件，用记事本打开，将cnfeat.com修改成你的域名，放进Hexo\source目录下，用hexo命令提交上去。</p>
+<p>$ hexo d -g</p>
+<p>##配置和使用hexo<br>参考<a href="http://zipperary.com/2013/05/28/hexo-guide-2/" target="_blank" rel="external">http://zipperary.com/2013/05/28/hexo-guide-2/</a></p>
+<p>注意： 遇到deployer not found: github<br>要 _config.yml 中设置 deploy中的type一项为git（而且还要注意空一格），然后</p>
+<blockquote>
+<p>npm install hexo-deployer-git –save</p>
+</blockquote>
+<p>然后 hexo g<br>hexo d </p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2016/02/25/aa/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Anterior</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2016/03/06/python-B-Splline-插值曲线/" class="alignright next">Próximo<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comentários</h2>
+
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2016-02-25 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Chordy
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>
